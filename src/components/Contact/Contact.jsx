@@ -1,5 +1,10 @@
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <li>
+      <p>Name</p>
+      <p>Phone</p>
+    </li>
+  );
 };
 
 export default Contact;

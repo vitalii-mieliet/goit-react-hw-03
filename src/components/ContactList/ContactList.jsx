@@ -1,5 +1,15 @@
+import Contact from "../Contact/Contact";
+
 const ContactList = () => {
-  return <div>ContactList</div>;
+  return (
+    <ul>
+      <Contact />
+      <Contact />
+      <Contact />
+      <Contact />
+      <Contact />
+    </ul>
+  );
 };
 
 export default ContactList;
