@@ -1,11 +1,18 @@
-const Contact = ({ contact: { name, number, id } }) => {
+const Contact = ({ contact: { name, phone, id }, removeContact }) => {
   return (
     <li>
       <div>
         <p>{name}</p>
-        <p>{number}</p>
+        <p>{phone}</p>
       </div>
-      <button type="button">Delete</button>
+      <button
+        type="button"
+        onClick={() => {
+          removeContact(id);
+        }}
+      >
+        Delete
+      </button>
     </li>
   );
 };

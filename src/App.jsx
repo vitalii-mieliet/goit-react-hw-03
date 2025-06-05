@@ -17,14 +17,19 @@ function App() {
     });
   };
 
+  const removeContactById = (contactId) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== contactId)
+    );
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} removeContact={removeContactById} />
     </div>
   );
 }
-
 export default App;
