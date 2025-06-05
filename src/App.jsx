@@ -1,26 +1,28 @@
 import { useState } from "react";
+import { nanoid } from "nanoid/non-secure";
+
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-// import inittialContacts from "./data/initial-contacts.json";
+import initContacts from "./data/initContacts.json";
 import "./App.css";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
-  const handleContacts = (newContact) => {
+  const [contacts, setContacts] = useState(initContacts);
+
+  const addContact = (newContact) => {
+    const contact = { ...newContact, id: nanoid() };
     setContacts((prevContacts) => {
-      return [...prevContacts, newContact];
+      return [...prevContacts, contact];
     });
   };
-
-  console.log(contacts);
 
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm addContact={handleContacts} />
+      <ContactForm addContact={addContact} />
       <SearchBox />
-      <ContactList />
+      <ContactList contacts={contacts} />
     </div>
   );
 }

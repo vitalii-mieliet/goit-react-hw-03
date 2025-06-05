@@ -1,9 +1,9 @@
-const Contact = () => {
+const Contact = ({ contact: { name, number, id } }) => {
   return (
     <li>
       <div>
-        <p>Name</p>
-        <p>Phone</p>
+        <p>{name}</p>
+        <p>{number}</p>
       </div>
       <button type="button">Delete</button>
     </li>
