@@ -1,8 +1,11 @@
 const Contact = () => {
   return (
     <li>
-      <p>Name</p>
-      <p>Phone</p>
+      <div>
+        <p>Name</p>
+        <p>Phone</p>
+      </div>
+      <button type="button">Delete</button>
     </li>
   );
 };

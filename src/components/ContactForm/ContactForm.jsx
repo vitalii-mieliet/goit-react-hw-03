@@ -1,11 +1,12 @@
 import { Field, Form, Formik } from "formik";
 import { useId } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ addContact }) => {
   const nameId = useId();
   const phoneId = useId();
 
   const handleSubmit = (contact, actions) => {
+    addContact(contact);
     console.log(contact);
     actions.resetForm();
   };
