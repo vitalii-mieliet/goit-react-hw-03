@@ -9,6 +9,7 @@ import "./App.css";
 
 function App() {
   const [contacts, setContacts] = useState(initContacts);
+  const [filter, setFilter] = useState("");
 
   const addContact = (newContact) => {
     const contact = { ...newContact, id: nanoid() };
@@ -23,12 +24,23 @@ function App() {
     );
   };
 
+  const handleFilter = (query) => {
+    setFilter(query);
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
+  );
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
-      <SearchBox />
-      <ContactList contacts={contacts} removeContact={removeContactById} />
+      <SearchBox filterValue={filter} handleFilter={handleFilter} />
+      <ContactList
+        contacts={filteredContacts}
+        removeContact={removeContactById}
+      />
     </div>
   );
 }
