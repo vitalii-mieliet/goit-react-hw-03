@@ -9,7 +9,9 @@ export const contactFormValidation = Yup.object().shape({
   phone: Yup.string()
     .required("Phone number is required")
     .matches(
-      new RegExp("^\\+?\\d{10,15}$"),
-      "Phone number must contain only digits and may start with + (no spaces, dashes, or special characters)"
-    ),
+      new RegExp("^\\+?[0-9](?:[0-9-]*[0-9])?$"),
+      "Use digits and dashes only. No dash at the start or end."
+    )
+    .min(7, "Phone number is too short")
+    .max(20, "Phone number is too long"),
 });
