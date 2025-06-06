@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid/non-secure";
 
 import ContactForm from "./components/ContactForm/ContactForm";
@@ -8,8 +8,14 @@ import initContacts from "./data/initContacts.json";
 import "./App.css";
 
 function App() {
-  const [contacts, setContacts] = useState(initContacts);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem("contacts")) || initContacts
+  );
   const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = (newContact) => {
     const contact = { ...newContact, id: nanoid() };
