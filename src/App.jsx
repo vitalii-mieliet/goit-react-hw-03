@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 style={{ width: "300px", margin: "0 auto 24px auto" }}>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox filterValue={filter} handleFilter={handleFilter} />
       <ContactList
