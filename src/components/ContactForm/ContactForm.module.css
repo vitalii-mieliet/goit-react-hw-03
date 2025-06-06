@@ -1,0 +1,32 @@
+.form {
+  display: block;
+  width: 360px;
+  margin: 0 auto;
+  margin-bottom: 28px;
+  font-size: 18px;
+}
+
+.field {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+input {
+  font-size: 16px;
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  padding: 0 4px;
+
+  font-size: 14px;
+  color: lightcoral;
+}
+
+.button {
+  margin: 0 auto;
+}
